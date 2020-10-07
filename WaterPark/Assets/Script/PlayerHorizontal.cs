@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerHorizontal : MonoBehaviour
 {
 
-    public float moveSpeed = 5f;
+    public float moveSpeed = 4f;
     public Transform movePoint;
 
-    // Start is called before the first frame update
+    public LayerMask Border;
+
     void Start()
     {
         movePoint.parent = null;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -24,13 +24,13 @@ public class PlayerHorizontal : MonoBehaviour
         {
             if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
             {
-                movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                //if (Physics.OverlapSphere(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), .2f, Border))
+               // {
+                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+               // }
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        this.gameObject.SetActive(false);
-    }
+
 }
