@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHorizontal : MonoBehaviour
+public class PlayerVertical : MonoBehaviour
 {
 
     public float moveSpeed = 4f;
     public Transform movePoint;
-    public GameObject LeftCollider;
-    public GameObject RightCollider;
-    
+    public GameObject TopCollider;
+    public GameObject BottomCollider;
+
 
     public LayerMask Border;
 
@@ -21,24 +21,24 @@ public class PlayerHorizontal : MonoBehaviour
     void Update()
     {
 
-      
+
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
         {
-            if (Input.GetKeyDown("a"))
+            if (Input.GetKeyDown("w"))
             {
-               if(LeftCollider.GetComponent<hitBorder>().LeftTriggerHit == false)
+                if (TopCollider.GetComponent<touchBorderTop>().TopTriggerHitv == false)
                 {
-                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    movePoint.position += new Vector3(0f, 0f, Input.GetAxisRaw("Vertical"));
                 }
             }
 
-            if (Input.GetKeyDown("d"))
+            if (Input.GetKeyDown("s"))
             {
-                if (RightCollider.GetComponent<hitBorderRight>().RightTriggerHit == false)
+                if (BottomCollider.GetComponent<touchBorderBottom>().BottomTriggerHitv == false)
                 {
-                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    movePoint.position += new Vector3(0f, 0f, Input.GetAxisRaw("Vertical"));
                 }
             }
         }
