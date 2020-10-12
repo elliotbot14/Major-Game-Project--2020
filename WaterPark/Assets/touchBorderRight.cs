@@ -5,21 +5,34 @@ using UnityEngine;
 public class touchBorderRight : MonoBehaviour
 {
     public bool RightTriggerHitv;
+    public bool HorTriggerRight;
 
     private void Start()
     {
         RightTriggerHitv = false;
+        HorTriggerRight = false;
     }
 
-    private void OnTriggerEnter(Collider Collider)
+    private void OnTriggerEnter(Collider col)
     {
-        RightTriggerHitv = true;
-
+        if (col.gameObject.tag == "Border")
+        {
+            RightTriggerHitv = true;
+        }
+        if (col.gameObject.tag == "HorPlayer")
+        {
+            HorTriggerRight = true;
+        }
     }
-    private void OnTriggerExit(Collider Collider)
+    private void OnTriggerExit(Collider col)
     {
-        RightTriggerHitv = false;
-
+        if (col.gameObject.tag == "Border")
+        {
+            RightTriggerHitv = false;
+        }
+        if (col.gameObject.tag == "HorPlayer")
+        {
+            HorTriggerRight = false;
+        }
     }
-
 }

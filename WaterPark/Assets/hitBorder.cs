@@ -5,21 +5,36 @@ using UnityEngine;
 public class hitBorder : MonoBehaviour
 {
     public bool LeftTriggerHit;
+    public bool VerTriggerLeft;
 
     private void Start()
     {
         LeftTriggerHit = false;
+        VerTriggerLeft = false;
     }
 
-    private void OnTriggerEnter(Collider Collider)
+    private void OnTriggerEnter(Collider col)
     {
-        LeftTriggerHit = true;
-        
+        if (col.gameObject.tag == "Border")
+        {
+            LeftTriggerHit = true;
+        }
+        if (col.gameObject.tag == "VerPlayer")
+        {
+            VerTriggerLeft = true;
+        }
+
     }
-    private void OnTriggerExit(Collider Collider)
+    private void OnTriggerExit(Collider col)
     {
-        LeftTriggerHit = false;
-        
+        if (col.gameObject.tag == "Border")
+        {
+            LeftTriggerHit = true;
+        }
+        if (col.gameObject.tag == "VerPlayer")
+        {
+            VerTriggerLeft = true;
+        }
     }
 
 }

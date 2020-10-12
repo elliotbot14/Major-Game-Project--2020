@@ -5,21 +5,35 @@ using UnityEngine;
 public class hitBorderBottom : MonoBehaviour
 {
     public bool BottomTriggerHit;
+    public bool VerTriggerBottom;
 
     private void Start()
     {
         BottomTriggerHit = false;
+        VerTriggerBottom = false;
     }
 
-    private void OnTriggerEnter(Collider Collider)
+    private void OnTriggerEnter(Collider col)
     {
-        BottomTriggerHit = true;
+        if (col.gameObject.tag == "Border")
+        {
+            BottomTriggerHit = true;
+        }
+        if(col.gameObject.tag == "VerPlayer")
+        {
+            VerTriggerBottom = true;
+        }
         
     }
-    private void OnTriggerExit(Collider Collider)
+    private void OnTriggerExit(Collider col)
     {
-        BottomTriggerHit = false;
-       
+        if (col.gameObject.tag == "Border")
+        {
+            BottomTriggerHit = true;
+        }
+        if (col.gameObject.tag == "VerPlayer")
+        {
+            VerTriggerBottom = true;
+        }
     }
-
 }

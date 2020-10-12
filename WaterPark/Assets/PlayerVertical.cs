@@ -9,6 +9,7 @@ public class PlayerVertical : MonoBehaviour
     public Transform movePoint;
     public GameObject TopCollider;
     public GameObject BottomCollider;
+    public GameObject HorTopCollider;
 
 
     public LayerMask Border;
@@ -30,7 +31,10 @@ public class PlayerVertical : MonoBehaviour
             {
                 if (TopCollider.GetComponent<touchBorderTop>().TopTriggerHitv == false)
                 {
-                    movePoint.position += new Vector3(0f, 0f, Input.GetAxisRaw("Vertical"));
+                  // if (HorTopCollider.GetComponent<hitBorderTop>().TopTriggerHit == false && TopCollider.GetComponent<touchBorderTop>().HorTriggerTop == false)
+                  //{
+                        movePoint.position += new Vector3(0f, 0f, Input.GetAxisRaw("Vertical"));
+                    //}
                 }
             }
 
@@ -45,4 +49,4 @@ public class PlayerVertical : MonoBehaviour
     }
 
 
-}
+} 
