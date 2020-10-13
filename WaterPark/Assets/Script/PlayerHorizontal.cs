@@ -7,13 +7,21 @@ public class PlayerHorizontal : MonoBehaviour
 
     public float moveSpeed = 4f;
     public Transform movePoint;
+
+    //Hori Colliders
     public GameObject LeftCollider;
     public GameObject RightCollider;
-    public GameObject VertTopCollider;
-    public GameObject TopCollider;
-    public GameObject VertBottomCollider;
     public GameObject BottomCollider;
+    public GameObject TopCollider;
+
+    //Vert Colliders
+    public GameObject VertLeftCollider;
+    public GameObject VertRightCollider;
+    public GameObject VertBottomCollider;
+    public GameObject VertTopCollider; 
     
+
+
 
     public LayerMask Border;
 
@@ -34,7 +42,19 @@ public class PlayerHorizontal : MonoBehaviour
             {
                if(LeftCollider.GetComponent<hitBorder>().LeftTriggerHit == false)
                 {
-                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    //Left Colliders
+                    if (VertLeftCollider.GetComponent<touchBorderLeft>().LeftTriggerHitv == true && LeftCollider.GetComponent<hitBorder>().VerTriggerLeft == false)
+                    {
+                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    }
+                    if (VertLeftCollider.GetComponent<touchBorderLeft>().LeftTriggerHitv == false && LeftCollider.GetComponent<hitBorder>().VerTriggerLeft == true)
+                    {
+                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    }
+                    if (VertLeftCollider.GetComponent<touchBorderLeft>().LeftTriggerHitv == false && LeftCollider.GetComponent<hitBorder>().VerTriggerLeft == false)
+                    {
+                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    }
                 }
             }
 
@@ -42,7 +62,20 @@ public class PlayerHorizontal : MonoBehaviour
             {
                 if (RightCollider.GetComponent<hitBorderRight>().RightTriggerHit == false)
                 {
-                    movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    //Right Colliders
+                    if (VertRightCollider.GetComponent<touchBorderRight>().RightTriggerHitv == true && RightCollider.GetComponent<hitBorderRight>().VerTriggerRight == false)
+                    {
+                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    }
+                    if (VertRightCollider.GetComponent<touchBorderRight>().RightTriggerHitv == false && RightCollider.GetComponent<hitBorderRight>().VerTriggerRight == true)
+                    {
+                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    }
+                    if (VertRightCollider.GetComponent<touchBorderRight>().RightTriggerHitv == false && RightCollider.GetComponent<hitBorderRight>().VerTriggerRight == false)
+                    {
+                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                    }
+
                 }
             }
             if(Input.GetKeyDown("w") && VertTopCollider.GetComponent<touchBorderTop>().HorTriggerTop == true)

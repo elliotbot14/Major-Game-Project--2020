@@ -29,11 +29,11 @@ public class hitBorderTop : MonoBehaviour
     {
         if (col.gameObject.tag == "Border")
         {
-            TopTriggerHit = true;
+            TopTriggerHit = false;
         }
         if (col.gameObject.tag == "VerPlayer")
         {
-            VerTriggerTop = true;
+            VerTriggerTop = false;
         }
     }
 }

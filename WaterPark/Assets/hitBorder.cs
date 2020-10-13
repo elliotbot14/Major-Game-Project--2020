@@ -29,11 +29,11 @@ public class hitBorder : MonoBehaviour
     {
         if (col.gameObject.tag == "Border")
         {
-            LeftTriggerHit = true;
+            LeftTriggerHit = false;
         }
         if (col.gameObject.tag == "VerPlayer")
         {
-            VerTriggerLeft = true;
+            VerTriggerLeft = false;
         }
     }
 

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 10796750}
   m_Layer: 10
   m_Name: VerticalPlayer
-  m_TagString: Untagged
+  m_TagString: VerPlayer
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,12 @@ MonoBehaviour:
   movePoint: {fileID: 121335288}
   TopCollider: {fileID: 477791961}
   BottomCollider: {fileID: 1478759756}
+  RightCollider: {fileID: 508353056}
+  LeftCollider: {fileID: 1372814454}
   HorTopCollider: {fileID: 1953907880}
+  HorBottomCollider: {fileID: 559978931}
+  HorRightCollider: {fileID: 1835482040}
+  HorLeftCollider: {fileID: 1223893792}
   Border:
     serializedVersion: 2
     m_Bits: 256
@@ -400,10 +405,12 @@ MonoBehaviour:
   movePoint: {fileID: 713261195}
   LeftCollider: {fileID: 1223893792}
   RightCollider: {fileID: 1835482040}
-  VertTopCollider: {fileID: 477791961}
-  TopCollider: {fileID: 1953907880}
-  VertBottomCollider: {fileID: 1478759756}
   BottomCollider: {fileID: 559978931}
+  TopCollider: {fileID: 1953907880}
+  VertLeftCollider: {fileID: 1372814454}
+  VertRightCollider: {fileID: 508353056}
+  VertBottomCollider: {fileID: 1478759756}
+  VertTopCollider: {fileID: 477791961}
   Border:
     serializedVersion: 2
     m_Bits: 256
